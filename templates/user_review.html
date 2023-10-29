@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <h1>Review Posts from {{user}}</h1>
+    </head>
+    <body>
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+    
+        <table>
+            <th>Title</th>
+            <th>Review</th>
+            <th>Date</th>
+    
+        {% for line in posts %}
+            <tr>
+                <td>{{line.title}}</td>
+                <td>{{line.reviewText}}</td>
+                <td>{{line.reviewDate}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <br>
+        <a href="/logout">Logout</a>
+    </body>
+</html>

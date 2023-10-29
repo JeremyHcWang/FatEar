@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <h1>Followers of {{username}}</h1>
+    </head>
+
+    <body>
+        <style type="text/css">
+            table, th, td{
+                border: 1px solid black;
+            }
+        </style>
+
+        <table>
+            <th>User</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+    
+        {% for line in followers %}
+            <tr>
+                <td>{{line.username}}</td>
+                <td>{{line.fname}}</td>
+                <td>{{line.lname}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <br>
+        <a href="/logout">Logout</a>
+    </body>
+</html>

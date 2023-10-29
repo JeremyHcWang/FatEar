@@ -1,0 +1,28 @@
+<html>
+<head>
+    <h1>Profile of {{username}}</h1></h1>
+</head>
+<body>
+    <form action="/show_friend" method="POST">
+        <input type="submit" name="username" value="{{user}}">Friend</input>    
+    </form>
+    <br>
+    <form action="/show_follower" method="POST">
+        <input type="submit" name="username" value="{{user}}">Follower</input>    
+    </form>
+    <br>
+    <form action="/show_follow" method="POST">
+        <input type="submit" name="username" value="{{user}}">Follow</input>    
+    </form>
+    <br>
+    <form action="/show_user_review" method="POST">
+        <input type="submit" name="username" value="{{user}}">Review Post</input>    
+    </form>
+    <br>
+    <a href="/select_user">Select Another User</a>
+    <br>
+    <br>
+    <a href="/logout">Logout</a>
+
+</body>
+</html>

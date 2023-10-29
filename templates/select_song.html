@@ -1,0 +1,23 @@
+<html>
+<head>
+    <h1>Select a song for detail</h1>
+</head>
+
+<br>
+
+<body>
+    <form action="/show_review" method="POST">
+
+
+        {% for line in song_list %}
+        <input type="radio" name="songtitle" value="{{line.title}}">{{line.title}}</input>
+            <br>
+        {% endfor %}
+        
+        <input type="submit" value="View song detail">
+        
+    </form>
+      
+    <a href="/logout">Logout</a>
+</body>
+</html>

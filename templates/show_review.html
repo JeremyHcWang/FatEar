@@ -1,0 +1,57 @@
+<html>
+<head>
+	<h1>Song Review</h1>
+</head>
+<body>
+
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	Here are reviews of {{song_title}}:
+
+	<table>
+		<th>User</th>
+		<th>Review</th>
+		<th>Date</th>
+
+	{% for line in reviews %}
+		<tr>
+	    	<td>{{line.username}}</td>
+			<td>{{line.reviewText}}</td>
+			<td>{{line.reviewDate}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+<br>
+<form action="/post_review" method="POST">
+	<input type="hidden" name="title1" value="{{song_title}}">
+	<input type="text" name = "review" placeholder="Post a review for this song" required>{{song_title}}</input> </br>
+	<input type="submit" value = "Post" />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<br>
+<form action="/post_rating" method="POST">
+	<input type="hidden" name="title2" value="{{song_title}}">
+	<label for="rating"> Give a rating for this song (1-5) stars: </label>
+	<input type="range" id = "rating" name = "rating" min="1" max="5" required>{{song_title}}</input> </br>
+	<input type="submit" value = "Confirm" />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<br>
+<br>
+<a href="/home">Return to Home</a>
+<br>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

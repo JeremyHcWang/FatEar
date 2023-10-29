@@ -1,0 +1,63 @@
+<html>
+<head>
+	<h1>Welcome</h1>
+</head>
+<body>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Here are new reviews from friend and following users:
+
+<table>
+	<th>User</th>
+	<th>Song</th>
+	<th>Review</th>
+	<th>Date</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line.username}}</td>
+		<td>{{line.title}}</td>
+		<td>{{line.reviewText}}</td>
+		<td>{{line.reviewDate}}</td>
+	</tr>
+{% endfor %}
+</table>
+<br>
+<br>
+<a href="/newsong">Check new songs from your artists</a>
+<br>
+<br>
+<a href="/select_user">Browse other users</a>
+<br>
+<br>
+
+
+<form action="/select_genre" method="POST">
+	<input type="text" name = "genre" placeholder="Select songs by genre" required/></br>
+	<input type="submit" value = Select />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<form action="/select_artist" method="POST">
+	<input type="text" name = "artist" placeholder="Select songs by artist" required/></br>
+	<input type="submit" value = Select />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<br>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>
